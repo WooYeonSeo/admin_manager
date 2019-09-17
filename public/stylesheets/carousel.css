@@ -1,0 +1,27 @@
+.carousel-box {
+  width: 10rem;
+  height: 15rem;
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid grey; }
+
+.carousel-control-prev {
+  left: 0;
+  border: 1px solid grey; }
+
+.carousel-control-next {
+  right: 0;
+  border: 1px solid grey; }
+
+.carousel-control-next, .carousel-control-prev {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  color: black;
+  text-align: center;
+  opacity: .5; }
