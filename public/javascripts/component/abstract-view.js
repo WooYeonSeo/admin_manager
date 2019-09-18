@@ -1,5 +1,6 @@
-export default class AbstractView {
+export default class AbstractView extends EventEmitter{
 	constructor(rootSeletor, observer) {
+		super();
 		const rootElement = document.querySelector(rootSeletor);
 		this.observer = observer;
 
@@ -13,5 +14,7 @@ export default class AbstractView {
 	}
 
 	bindEvent() {
+		
 	}
+	
 }
