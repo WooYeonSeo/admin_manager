@@ -10,16 +10,18 @@ export default class Carousel {
       this.viewModel = viewModel;
       this.initView('.carousel_box');
       this.bindEvent();
+
+      this.initCarousel(this.viewModel.getImgData());
     }
 
     initElement() {
       this.dom = {
-        carouselitem : this.rootElement.querySelector('.carousel_item'),
+        carouselitem : this.rootElement.querySelector('.carousel_item:nth-child(2)')
       };
 
       //this.dom.carouselitem.style.width = this.dom.carouselitem.offsetWidth + 'px';
       //this.dom.carouselitem.style.height = this.dom.carouselitem.offsetHeight + 'px';
-      this.dom.carouselitem.style.opacity = 1;
+      //this.dom.carouselitem.style.opacity = 1;
     }
 
     initView(rootSeletor) {
@@ -36,13 +38,20 @@ export default class Carousel {
         this.viewModel.changeImgIndex(1);
       });
 
-      this.viewModel.on('CHANGE_IMG_IDX', ()=>{
+      this.viewModel.on('CHANGE_IMG_IDX', (flag)=>{
         let src = this.viewModel.getImgInfo();
-        this.updateImg(src);
+        let offset = this.viewModel.getOffset();
+        let idx = this.viewModel.getIdx();
+        //console.log('src- ' ,src ,' offset -', offset);
+        this.updateImg(src,offset,flag);
       });
     }
 
-    updateImg(imgSrc) {
-      this.componentImg.updateImg(imgSrc);
+    initCarousel(imgData){
+      this.componentImg.InitImage(imgData);
+    }
+
+    updateImg(imgSrc,offset,flag) {
+      this.componentImg.updateImg(imgSrc,offset,flag);
     }
   }

@@ -4,7 +4,8 @@
   height: 10rem;
   position: relative;
   box-sizing: border-box;
-  border: 1px solid grey; }
+  border: 1px solid grey;
+  overflow: hidden; }
 
 .carousel_control_prev {
   left: 0;
@@ -27,10 +28,11 @@
   text-align: center;
   opacity: .5; }
 
-.carousel_items {
+.carousel_item_list {
   /* 수평 정렬 */
   display: flex; }
 
 .carousel_item {
   padding: 5px;
-  opacity: 0; }
+  opacity: 1;
+  transform: translate3d(-410px, 0px, 0px); }
