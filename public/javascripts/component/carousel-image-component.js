@@ -5,21 +5,26 @@ export default class carouselImage extends AbstractView {
 		super(rootSeletor);
 	}
 	// implemented function
-	initElement(rootEl) {
+	// root : carousel box
+	initElement(root) {
 		this.dom = {
-			imgContainer: rootEl.querySelector('.carousel_item'),
-			imgLink: rootEl.querySelector('.carousel_item a'),
-			imgItem: rootEl.querySelector('.carousel_item .image_box'),
+			prev : root.querySelector('.carousel_control_prev'),
+			next : root.querySelector('.carousel_control_next'),
+			imgItem: root.querySelector('.carousel_item .image_box'),
 		};
 	}
 
 	bindEvent(){
+		this.dom.prev.addEventListener('click', () => {
+			this.emit('CHANGE_IMG_PREV');
+		});
 
+		this.dom.next.addEventListener('click', () => {
+			this.emit('CHANGE_IMG_NEXT');
+		});
 	}
 	// functions 
 	updateImg(imgSrc) {
-		imgSrc = 'http://via.placeholder.com/400x150/3498db/fff&text=6';
 		this.dom.imgItem.setAttribute('src', imgSrc);
-	}
-	
+	}	
 }
