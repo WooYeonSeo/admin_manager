@@ -6,10 +6,8 @@
     <link rel='stylesheet' href='/stylesheets/carousel.css' />
   </head>
   <body>
-    <h1>carousel</h1>
-    <p>Welcome to <%= title %></p>
-
-    <div class="carousel_box">
+    <h2>mini carousel</h2>
+    <div class="carousel_box mini_carousel_box">
       <div class="carousel_item_list">
   
       </div>
@@ -17,21 +15,17 @@
       <a class="carousel_control_next"> <span> > </span></a>
     </div>
 
+    <h2>main carousel</h2>
     <div class="card_box">
-        <div class="card_item ship-card">
-            <div class="card_clickable">
-                <div class="card_title">Ship</div>
-            </div>
-            <div class="card_content">
-              <ul id="ship-group" class="dot_box">
-                <li class="dot off" role="tab" data-page="1">1</li>
-                <li class="dot off" role="tab" data-page="2">2</li>
-                <li class="dot off" role="tab" data-page="3">3</li>
-                <li class="dot on" role="tab" data-page="4"></li>
-              </ul>
-            </div>
+
+    </div>
+    <div class="carousel_box main_carousel_box">
+        <div class="carousel_item_list">
+  
         </div>
-      </div>
+        <a class="carousel_control_prev"> <span> < </span></a>
+        <a class="carousel_control_next"> <span> > </span></a>
+    </div>
     <script src='../javascripts/EventEmitter.min.js'></script>
     <script type="module" src="../javascripts/load-view.js"></script>
   </body>
