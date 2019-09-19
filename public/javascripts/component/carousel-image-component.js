@@ -16,7 +16,7 @@ export default class carouselImage extends AbstractView {
 
 		this.template = {
 			ImageTemplate: `
-				<div class="carousel_item" data-index="{index}> 
+				<div class="carousel_item" data-index="{index}"> 
 					<a href="#">
 						<img class="image_left_box" src="{imgsrc}">
 					</a> 

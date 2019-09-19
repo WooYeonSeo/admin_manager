@@ -4,7 +4,7 @@ import ComponentImg from '../component/carousel-image-component.js';
 export default class Carousel {
     constructor(viewModel) {
       // 여러개 되면 id 값을 받을 수 있을듯 
-      this.rootElement = document.querySelector('.carousel_box');
+      this.rootElement = document.querySelector('.mini_carousel_box');
       this.initElement(this.rootElement);
       
       this.viewModel = viewModel;
