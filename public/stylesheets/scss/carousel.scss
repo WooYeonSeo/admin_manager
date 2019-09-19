@@ -55,12 +55,14 @@ $line_height: percentage(20px / $font_size);
 
 
 .card_item{
+  display: inline-block;
+  position: relative;
   width: 9.35rem;
   height: 13.12rem;
   border: 1px solid gray;
-  position: relative;
   cursor: pointer;
-}
+} 
+
 
 .ship-card .card_clickable {
   background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/InteractivePlane_TILES_SpriteSheet_A._CB513333159_.png),
@@ -68,6 +70,28 @@ $line_height: percentage(20px / $font_size);
   width: 9.35rem;
   height: 13.12rem;
 }
+
+#card_1 .card_clickable{
+  background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/InteractivePlane_TILES_SpriteSheet_B._CB513285352_.png),
+  linear-gradient(30deg, #CC0C39 40%, #FF6138 90%, #FF6138 48px);
+}
+
+#card_2 .card_clickable{
+  background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/InteractivePlane_TILES_SpriteSheet_B._CB513285352_.png),
+  linear-gradient(30deg, #CC0C39 40%, #FF6138 90%, #FF6138 48px);
+}
+
+#card_4 .card_clickable{
+  background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/InteractivePlane_TILES_SpriteSheet_B._CB513285352_.png),
+  linear-gradient(30deg, rgb(101, 189, 0) 40%, rgb(11, 66, 32) 90%, rgb(131, 143, 128) 100%);
+}
+
+#card_3 .card_clickable{
+  background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/InteractivePlane_TILES_SpriteSheet_B._CB513285352_.png),
+  linear-gradient(30deg, rgb(189, 161, 0) 40%, rgb(168, 201, 90) 90%);
+}
+
+
 .card_clickable{
   background-size: 75rem auto, 100% 100%;
 }
@@ -80,7 +104,7 @@ $line_height: percentage(20px / $font_size);
   color: white; 
   font-size: 1rem;
   margin: auto;
-  bottom: 24px;
+  bottom: 1.7rem;
 }
 
 .card_content{
@@ -90,12 +114,16 @@ $line_height: percentage(20px / $font_size);
 }
 
 .dot_box {
-  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0.3rem;
 }
 
 .dot_box .dot {
   float: left;
-  margin-right: 10px;
+  margin: 0 0.3rem;
   width: 0.5rem;
   height: 0.5rem;
   font-size: 0;
