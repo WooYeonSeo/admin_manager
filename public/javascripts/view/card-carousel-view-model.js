@@ -10,7 +10,7 @@ export default class CardCarouselViewModel extends EventEmitter {
 		};
 	}
 
-	changeImgIndex(moveIdx) {
+	/* changeImgIndex(moveIdx) {
 		const { presentIdx } = this.sliderState;
 		let nextIndex = presentIdx + moveIdx;
 		let maxlength = 17;
@@ -27,10 +27,14 @@ export default class CardCarouselViewModel extends EventEmitter {
 		this.emit('CHANGE_IMG_IDX',endflag );
 
 		this.setEdgeOffset(nextIndex,maxlength);
-	}
+	} */
 
 	changeImgIndexMany(cardid) {
-		let destIdx = this.setCarouselIdx(cardid)
+		let destIdx = this.setCarouselIdx(cardid);
+		this.changeImgIndex(destIdx);
+	}
+
+	changeImgIndex(destIdx){
 		const { presentIdx } = this.sliderState;
 		let moveIdx = this.checkDirection(destIdx,presentIdx);
 		let nextIndex = presentIdx + moveIdx;

@@ -30,7 +30,6 @@ export default class CardCarousel {
 
       this.DotComponent = new DotComponent(rootSeletor);
       this.DotComponent.initDot(dotData);
-      
     }
 
 
@@ -46,10 +45,13 @@ export default class CardCarousel {
       // emitter event on 
       this.cardComponent.on('CHANGE_IMG_FIRST', (e)=>{
         e.stopPropagation();
-        let cardid = e.target.parentElement.id;
-        cardid = Number(cardid.replace('card_', ''));
-
-        this.viewModel.changeImgIndexMany(cardid);
+        if(e.target.getAttribute("role") === "tab" ){
+           this.viewModel.changeImgIndex(Number(e.target.dataset.page));
+        }else{
+          let cardid = e.target.parentElement.id;
+          cardid = Number(cardid.replace('card_', ''));
+          this.viewModel.changeImgIndexMany(cardid);
+        }
       });
 
       this.carouselComponent.on('CHANGE_IMG_PREV', ()=>{
