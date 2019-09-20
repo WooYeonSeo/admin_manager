@@ -21,6 +21,19 @@ export default class carouselImage extends AbstractView {
 						<img class="image_left_box" src="{imgsrc}">
 					</a> 
 				</div>
+			`,
+			ItemTemplate: `
+                <div class="carousel_item" data-index="{index}"> 
+                    <a href="#">
+                        <img class="image_left_box" src="{imgsrc}">
+                    </a> 
+                    <div class="carousel_content_box">
+                        <p class="tags"> {tags} </p>
+                        <p class="slide_title"> {title} </p>
+                        <p class="slide_content"> {sub_title} </p>
+                        <p class="slide_link"> {link} </p>
+                    </div>
+                </div>
 			`
 		};
 	}
@@ -36,8 +49,6 @@ export default class carouselImage extends AbstractView {
 	}
 
 	InitImage(imgArr) {
-		//dotList
-		
 		let images = "";
 		for (let i = 0; i < imgArr.length; i++) {
 			let ImageTemplate = this.template.ImageTemplate;
@@ -48,6 +59,26 @@ export default class carouselImage extends AbstractView {
 		
 		this.dom.imgItemList.innerHTML = images;
 		this.dom.images = this.dom.imgItemList.children;
+
+		this.insertClone();
+	}
+
+	InitItem(itemArr) {
+		let items = "";
+		for (let i = 0; i < imgArr.length; i++) {
+			let ItemTemplate = this.template.ItemTemplate;
+			ItemTemplate = ItemTemplate.replace('{index}', `${i}`);
+			ItemTemplate = ItemTemplate.replace('{imgsrc}', `${itemArr[i].imgsrc}`);
+			ItemTemplate = ItemTemplate.replace('{tags}', `${itemArr[i].tags}`);
+			ItemTemplate = ItemTemplate.replace('{slide_title}', `${itemArr[i].title}`);
+			ItemTemplate = ItemTemplate.replace('{slide_content}', `${itemArr[i].subtitle}`);
+			ItemTemplate = ItemTemplate.replace('{slide_link}', `${itemArr[i].slide_link}`);
+
+			items += ItemTemplate;
+		}
+		
+		this.dom.imgItemList.innerHTML = items;
+		this.dom.items = this.dom.imgItemList.children;
 
 		this.insertClone();
 	}

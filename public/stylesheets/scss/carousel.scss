@@ -60,6 +60,16 @@ $line_height: percentage(20px / $font_size);
 .carousel_item img {
   width: 400px;
 }
+
+.carousel_content_box{
+  float: left;
+  margin-left: 55%;
+  position: absolute;
+  top: 15%;
+}
+.carousel_content_box p{
+  margin : 5% 0;
+}
 /* ==========================================================================
    card style
    ========================================================================== */
