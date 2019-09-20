@@ -23,7 +23,7 @@ export default class CarouselViewModel extends EventEmitter {
 			this.sliderState.offset -=  410;
 		}
 		let endflag = false;
-		this.emit('CHANGE_IMG_IDX',endflag );
+		this.emit('CHANGE_IMG_IDX',endflag);
 
 		this.setEdgeOffset(nextIndex,maxlength);
 	}

@@ -1,6 +1,6 @@
 import AbstractView from '../component/abstract-view.js';
 
-export default class cardComponent extends AbstractView {
+export default class cardComponent2 extends AbstractView {
 	constructor(rootSeletor) {
 		super(rootSeletor);
 	}
@@ -29,6 +29,10 @@ export default class cardComponent extends AbstractView {
 	bindEvent(){
 		
 	}
+	
+	bindActiveEvent(){
+		this.dom.card_box.addEventListener('click', (e) => this.emit('CHANGE_IMG_FIRST',e));
+	}
 
 	/**
 	 * 화면에 카드들을 렌더링 
@@ -36,21 +40,21 @@ export default class cardComponent extends AbstractView {
 	 * @param {Array} cardArr
 	 * @memberof cardComponent
 	 */
-	 initCard(cardInfo) {
-		let card = "";
+	 initCard(cardArr) {
+		let cardlist = "";
 	
-		let cardTemplate = this.template.cardTemplate;
-		cardTemplate = cardTemplate.replace('{id}', `card_${cardInfo.id}`);
-		cardTemplate = cardTemplate.replace('{title}', `${cardInfo.title}`);
-		card += cardTemplate;
+		for (let card of cardArr) {
+			let cardTemplate = this.template.cardTemplate;
+			cardTemplate = cardTemplate.replace('{id}', `card_${card.id}`);
+			cardTemplate = cardTemplate.replace('{title}', `${card.title}`);
+			cardlist += cardTemplate;
+		}
 		
-		this.dom.card_box.insertAdjacentHTML('beforeend',card);
-		this.dom.card = this.dom.card_box.querySelector(`#card_${cardInfo.id}`);
+		this.dom.card_box.innerHTML =cardlist;
+		this.dom.card = this.dom.card_box.children;
 		//console.log("value check : " ,this.dom.card)
 		this.bindActiveEvent();
 	} 
 
-	bindActiveEvent(){
-		this.dom.card.addEventListener('click', (e) => this.emit('CHANGE_IMG_FIRST',e));
-	}
+	
 }

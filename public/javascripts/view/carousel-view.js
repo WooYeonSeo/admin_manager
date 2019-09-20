@@ -18,10 +18,6 @@ export default class Carousel {
       this.dom = {
         carouselitem : this.rootElement.querySelector('.carousel_item:nth-child(2)')
       };
-
-      //this.dom.carouselitem.style.width = this.dom.carouselitem.offsetWidth + 'px';
-      //this.dom.carouselitem.style.height = this.dom.carouselitem.offsetHeight + 'px';
-      //this.dom.carouselitem.style.opacity = 1;
     }
 
     initView(rootSeletor) {

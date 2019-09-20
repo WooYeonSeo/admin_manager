@@ -67,7 +67,6 @@ export default class carouselImage extends AbstractView {
 
 	// functions 
 	updateImg(imgSrc, offset, flag) {
-		console.log("offset 1 ", offset);
 		if(flag){
 			this.moveWithoutAnimation(offset);
 		}else{
