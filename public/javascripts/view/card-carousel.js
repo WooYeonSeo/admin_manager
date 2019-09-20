@@ -9,12 +9,10 @@ export default class CardCarousel {
       this.viewModel = viewModel;
       
       this.initCardView('.card_box', this.viewModel.getCardData(), this.viewModel.getCardDotData());
-      //this.initCardView2('.card_box', this.viewModel.getCardData(), this.viewModel.getCardDotData());
       this.initCarouselView('.main_carousel_box');
       this.initCarousel(this.viewModel.getImgInfo());
 
       this.bindEvent();
-      //this.initCards(this.viewModel.getCardData());
     }
     /**
      * set cards component 
@@ -32,7 +30,6 @@ export default class CardCarousel {
       this.DotComponent.initDot(dotData);
     }
 
-
     initCarouselView(rootSeletor){
       this.carouselComponent = new carouselImage(rootSeletor);
     }
@@ -45,7 +42,7 @@ export default class CardCarousel {
       // emitter event on 
       this.cardComponent.on('CHANGE_IMG_FIRST', (e)=>{
         e.stopPropagation();
-        if(e.target.getAttribute("role") === "tab" ){
+        if(e.target.getAttribute("role") === "tab"){
            this.viewModel.changeImgIndex(Number(e.target.dataset.page));
         }else{
           let cardid = e.target.parentElement.id;

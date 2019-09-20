@@ -37,8 +37,6 @@ export default class Carousel {
       this.viewModel.on('CHANGE_IMG_IDX', (flag)=>{
         let src = this.viewModel.getImgInfo();
         let offset = this.viewModel.getOffset();
-        let idx = this.viewModel.getIdx();
-        //console.log('src- ' ,src ,' offset -', offset);
         this.updateImg(src,offset,flag);
       });
     }
