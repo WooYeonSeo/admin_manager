@@ -48,6 +48,12 @@ export default class carouselImage extends AbstractView {
 		});
 	}
 
+	/**
+	 * 이미지를 이미지 템플릿에 바인딩해서 케로셀 목록에 추가
+	 *
+	 * @param {*} imgArr
+	 * @memberof carouselImage
+	 */
 	InitImage(imgArr) {
 		let images = "";
 		for (let i = 0; i < imgArr.length; i++) {
@@ -63,6 +69,12 @@ export default class carouselImage extends AbstractView {
 		this.insertClone();
 	}
 
+	/**
+	 * 카드의 아이템 정보를 템플릿에 바인딩해서 케로셀 목록에 추가.
+	 *
+	 * @param {Array} itemArr
+	 * @memberof carouselImage
+	 */
 	InitItem(itemArr) {
 		let items = "";
 		for (let i = 0; i < imgArr.length; i++) {
@@ -105,6 +117,12 @@ export default class carouselImage extends AbstractView {
 		}
 	}
 
+	/**
+	 * 케로셀 이동
+	 *
+	 * @param {*} offset
+	 * @memberof carouselImage
+	 */
 	move(offset) {
 		let duration = 1000;
 		let easing = 'ease-out';
