@@ -57,10 +57,15 @@ $line_height: percentage(20px / $font_size);
   transform: translate3d(-410px, 0px, 0px);
 }
 
+.carousel_item img {
+  width: 400px;
+}
 /* ==========================================================================
    card style
    ========================================================================== */
-
+.card_box{
+  display: inline-block;
+}
 .card_item{
   display: inline-block;
   position: relative;
@@ -69,6 +74,15 @@ $line_height: percentage(20px / $font_size);
   border: 1px solid gray;
   cursor: pointer;
 } 
+
+.card_selected {
+  transform: scale(1.2);
+  overflow: visible;
+}
+
+.box_selected{
+  z-index: 99;
+}
 
 .ship-card .card_clickable {
   background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/InteractivePlane_TILES_SpriteSheet_A._CB513333159_.png),
