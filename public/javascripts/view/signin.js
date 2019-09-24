@@ -1,3 +1,5 @@
+import {util} from '../util/util.js';
+
 let signin = {
     init(){
         this.target = document.querySelector("#signin_form");
@@ -8,7 +10,7 @@ let signin = {
         loginBtn.addEventListener("click", this.login.bind(this));
 
         let singupBtn = this.target.querySelector("#main_signup");
-        singupBtn.addEventListener("click", router.routeForm.bind(router,"signup_form")); 
+        //singupBtn.addEventListener("click", router.routeForm.bind(router,"signup_form")); 
 
     },
     async login(){
@@ -19,8 +21,7 @@ let signin = {
         this.checkId(id);
         let loginResult = await this.checkAccount(id,pw);
         if(loginResult.data.is_logined){
-            await router.routeForm("main_form");
-            document.querySelector("#user_name").innerText = loginResult.data.name;
+            util.pageGo('/');
         }else{
             //로그인 가능 정보가 없음
         }

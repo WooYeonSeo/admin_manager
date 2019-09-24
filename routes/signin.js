@@ -8,7 +8,7 @@ router.get('/', (req, res,next)=>{
     res.render(path.join(__dirname ,'../views/signin.ejs'));
 });
 
-// url : signin/login
+// url : /signin/login
 router.post('/login', async (req, res)=>{
     //let result = await user.idChecker(req.body.id); // true false
     let id = req.body.id;
@@ -21,7 +21,7 @@ router.post('/login', async (req, res)=>{
                 name : "",
             }
     };
-    console.log("checkUser server ",user.checkUser(id,pw));
+    
     if(await user.checkUser(id,pw)){
         let userinfo = await user.getUserInfo(id);
         //세션 세팅
@@ -31,18 +31,15 @@ router.post('/login', async (req, res)=>{
         result.data.name = userinfo.user_name;
         result.data.is_logined = true;
         res.cookie('pageid', 'main_form') // ,option
-        req.session.save(()=>{
-            res.render('../public/views/index.ejs');
-        });
     }else{
         req.session.is_logined = false;
         req.session.user_name = "";
-        res.cookie('pageid', 'signin_form');
-        req.session.save(()=>{
-            res.render('../public/views/index.ejs');
-        });
+        res.cookie('pageid', 'signin_form') // ,option
     }
-    
+    req.session.save(()=>{
+        res.json(result);
+        //res.render('../public/views/signin.ejs', { title: 'login' });
+    });
 });
 
 

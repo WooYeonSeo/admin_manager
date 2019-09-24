@@ -4,14 +4,26 @@
     <title>AMAZON PRIME</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/carousel.css' />
+    <%
+    let userdata = {};
+    if(status == 200){
+      userdata = data;
+    }
+    %>
   </head>
   <body>
     <header>
      
       <div class="header_wrap">
+        <%if(data.is_logined != true){%>
         <span class="loginbtn" > <a href="/loginpage"> login</a></span>
+        <%}else{%>
+        <span class="loginbtn" > <a href="/logout"> logout</a></span>
+        <%}%>
         <span class="loginbtn adminbtn" > <a href="/adminpage"> ADMIN</a></span>
-        <span class="login_name"> <span>ㅇㅇㅇ</span> 님 </span>
+        <%if(data.is_logined == true){%>
+        <span class="login_name"> <span><%=data.name%></span> 님 </span>
+        <%}%>
       </div>
     </header>
     <h2>mini carousel</h2>
