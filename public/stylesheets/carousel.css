@@ -1,4 +1,31 @@
 @charset "UTF-8";
+body{
+  margin: 0;
+  padding: 0;
+}
+header{
+  background:rgb(34, 34, 34);
+  width: 100%;
+  height: 50px;
+}
+.loginbtn{
+  float: right;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: grey;
+  border: 1px solid grey;
+  border-radius: 5%;
+  margin: 9px;
+  cursor: pointer;
+}
+.login_name{
+  float: right;
+  padding: 0 1rem;
+  line-height: 50px;
+  font-size: 1rem;
+  color : white;
+}
 /* ==========================================================================
    carousel style
    ========================================================================== */
