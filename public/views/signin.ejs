@@ -1,0 +1,27 @@
+<!--sign in-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AMAZON PRIME</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel='stylesheet' href='../stylesheets/signup.css' />
+  </head>
+  <body>
+    <form class="container_box form-signin" id="signin_form" >
+        <h2 class="form-signin-heading container_title"> 로그인 </h2>
+        <label for="user_id" class="sr-only">Email address</label>
+        <input type="id" id="user_id" name="username"class="form-control" placeholder="Email address" required="" autofocus="">
+        <label for="user_pw" class="sr-only">Password</label>
+        <input type="password" id="user_pw" name="password" class="form-control" placeholder="Password" required="">
+        <div class="container_bottom">
+            <span class="main_btn">
+                <button class="main_btn " id="main_signup" type="button"> 회원가입 </button>
+            </span>
+            <span class="main_btn">
+                <button class="main_btn " id="main_login"type="button"> 로그인 </button>
+            </span>
+        </div>
+    </form>
+    <script type="module" src="../javascripts/view/signin.js"></script>
+</body>
+</html>
