@@ -15,16 +15,17 @@ let signin = {
     },
     async login(){
         console.log("login btn clicked");
-        let id = document.querySelector("#user_id").value; 
-        let pw = document.querySelector("#user_pw").value; 
+        let userid = document.querySelector("#user_id").value; 
+        let userpw = document.querySelector("#user_pw").value; 
 
-        this.checkId(id);
-        let loginResult = await this.checkAccount(id,pw);
+        this.checkId(userid);
+        util.pageGoPost('/signin/login_process', {username:userid, password:userpw});
+        /* let loginResult = await this.checkAccount(id,pw);
         if(loginResult.data.is_logined){
             util.pageGo('/');
         }else{
             //로그인 가능 정보가 없음
-        }
+        } */
     },
     checkId(id){
         let numpattern = /^[a-z0-9][a-z0-9_\-]{4,9}$/;	// id

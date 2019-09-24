@@ -6,20 +6,23 @@ const logger = require('morgan');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const loginRouter = require('./routes/signin');
+const dbConnection = require('./db/dbConnection.js');
 
 var app = express();
 app.use(session({
-  key : 'sid',
+  key : 'sid', 
   secret: 'secretkey', // env에 넣자 
   resave: false,
   saveUninitialized: true,
+  cookie: { secure: false, maxAge: new Date(Date.now() + 3600000) },
   store: new FileStore()
 }));
 
-let dbConnection = require('./db/dbConnection.js');
+const passport = require('./modules/passport.js')(app);
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const loginRouter = require('./routes/signin')(passport);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
