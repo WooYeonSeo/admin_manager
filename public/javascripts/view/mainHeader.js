@@ -7,13 +7,35 @@ export default class mainHeader {
         this.bindEvent();
     }
     async bindEvent(){
-        let logoutBtn = this.target.querySelector("#logout"); 
-        logoutBtn.addEventListener("click", this.logoutEventHandler);
+        let logoutBtn = this.rootElement.querySelector("#logout"); 
+        logoutBtn.addEventListener("click", this.logoutEventHandler.bind(this));
     }
 
-    logoutEventHandler(){
-        console.log("logout");
-        util.pageGo('/signin/logout');
+    async logoutEventHandler(){
+        let response = await this.logout();
+    
+        if(response.status =="200"){
+            document.location.href = "/";
+        }else{
+            //error page go
+        }   
+    }
+
+    logout(){
+        let fetchSetting = {
+            method: 'GET', 
+            headers : {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+            body: JSON.stringify(), 
+        };
+
+        return fetch('/signin/logout', fetchSetting)
+        .then(res => res.json())
+        .then((response)=>{
+            return response;
+        });
     }
 }
 

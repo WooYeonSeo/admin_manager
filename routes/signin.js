@@ -28,6 +28,7 @@ module.exports = function (passport) {
                     name : "",
                 }
         }; 
+        
         if(await user.checkUser(id,pw)){
             let userinfo = await user.getUserInfo(id);
             //세션 세팅
@@ -44,7 +45,6 @@ module.exports = function (passport) {
         }
         req.session.save(()=>{
             res.json(result);
-            //res.render('../public/views/signin.ejs', { title: 'login' });
         });
     });
 
@@ -58,11 +58,8 @@ module.exports = function (passport) {
                     is_logined : req.session.is_logined,
                 }
         };
-    
-        if(req.session !== undefined && req.session.is_logined == true){
-            req.session.is_logined = false;
-            res.cookie('pageid', 'signin_form') // ,option
-        }
+        req.logout();
+        
         req.session.save(()=>{
             console.log("req.session.is_logined : ", req.session.is_logined);
             res.json(result);

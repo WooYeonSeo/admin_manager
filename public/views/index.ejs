@@ -18,7 +18,7 @@
         <%if(data.is_logined != true){%>
         <span class="loginbtn" > <a href="/loginpage"> login</a></span>
         <%}else{%>
-        <span class="loginbtn" > <a href="/logout"> logout</a></span>
+        <span class="loginbtn" id ="logout"> logout </span>
         <%}%>
         <span class="loginbtn adminbtn" > <a href="/adminpage"> ADMIN</a></span>
         <%if(data.is_logined == true){%>
@@ -50,6 +50,6 @@
 
     
     <script src='../javascripts/EventEmitter.min.js'></script>
-    <script type="module" src="../javascripts/load-view.js"></script>
+    <script type="module" src="../javascripts/view/load-view.js"></script>
   </body>
 </html>
