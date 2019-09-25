@@ -1,10 +1,10 @@
 import {util} from '../util/util.js';
 
-let signin = {
+export default class signin {
     init(){
         this.target = document.querySelector("#signin_form");
         this.registerEvent();
-    },
+    }
     async registerEvent(){
         let loginBtn = this.target.querySelector("#main_login");
         loginBtn.addEventListener("click", this.login.bind(this));
@@ -12,7 +12,7 @@ let signin = {
         let singupBtn = this.target.querySelector("#main_signup");
         //singupBtn.addEventListener("click", router.routeForm.bind(router,"signup_form")); 
 
-    },
+    }
     async login(){
         console.log("login btn clicked");
         let userid = document.querySelector("#user_id").value; 
@@ -20,18 +20,13 @@ let signin = {
 
         this.checkId(userid);
         util.pageGoPost('/signin/login_process', {username:userid, password:userpw});
-        /* let loginResult = await this.checkAccount(id,pw);
-        if(loginResult.data.is_logined){
-            util.pageGo('/');
-        }else{
-            //로그인 가능 정보가 없음
-        } */
-    },
+     
+    }
     checkId(id){
         let numpattern = /^[a-z0-9][a-z0-9_\-]{4,9}$/;	// id
         if (!numpattern.test(id)) return false;      
         else return true; 
-    },
+    }
     checkAccount(id,pw){
         // fetch login check
         let fetchSetting = {
@@ -48,7 +43,7 @@ let signin = {
         .then((response)=>{
             return response;
         });
-    },
+    }
     getUserInfo(){
         // fetch login check
         let fetchSetting = {
@@ -67,4 +62,3 @@ let signin = {
         });
     }
 }
-signin.init();
