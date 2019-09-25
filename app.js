@@ -5,23 +5,24 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-
 const dbConnection = require('./db/dbConnection.js');
 
 var app = express();
+
 app.use(session({
   key : 'sid', 
   secret: 'secretkey', // env에 넣자 
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false, maxAge: new Date(Date.now() + 3600000) },
-  store: new FileStore()
+  cookie: { secure: false, httpOnly: false ,maxAge: new Date(Date.now() + 3600000) },
+  //store: new FileStore()
 }));
 
 const passport = require('./modules/passport.js')(app);
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const loginRouter = require('./routes/signin')(passport);
+const carouselRouter = require('./routes/carousel');
+const adminRouter = require('./routes/admin');
+const authRouter = require('./routes/auth')(passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,8 +35,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/users', usersRouter);
-app.use('/signin', loginRouter);
+app.use('/carousel', carouselRouter);
+app.use('/signin', authRouter);
+app.use('/admin',adminRouter);
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
