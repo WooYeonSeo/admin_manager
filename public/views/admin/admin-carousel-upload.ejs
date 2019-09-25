@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AMAZON PRIME</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/admin-main.css' />
+   
+  </head>
+  <body>
+    <header>
+      <div class="header_wrap">
+        <span class="header_title"> 관리자 페이지 </span>
+      </div>
+    </header>
+    <div class="container">
+      <span class="page_subtitle">관리자 페이지 - item 등록</span>
+    </div>
+    <div class="container">
+      
+      <div>
+          <form id="main_carousel_form" method="POST" enctype="multipart/form-data" action="/admin/upload/mini">
+            제목 : <input name="title" type="text" placeholder="제목을 입력하세요"> <br>
+            <select name="group">
+              <option value="1" selected="selected">ship</option>
+              <option value="2">steam</option>
+              <option value="3" >shop</option>
+              <option value="4" >read</option>
+              <option value="5" >more</option>
+            </select><br>
+            <textarea name="description" type="text" >  
+
+            </textarea><br>
+
+            head : <input name="head" type="text" placeholder="head를 입력하세요"> <br>
+            link : <input name="link" type="text" placeholder="링크를 입력하세요"> <br>
+
+            <div> 첨부파일 : <input type="file" name="slide_photo"><br></div>
+            <input type="button" id="upload"value="업로드">
+          </form>
+      </div>
+      
+    </div>
+     <script type="module" src="../../javascripts/view/load-view-admin.js"></script>
+  </body>
+</html>
