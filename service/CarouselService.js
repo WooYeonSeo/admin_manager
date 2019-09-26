@@ -43,6 +43,11 @@ class CarouselService{
     async uploadCarouselContent(carouselContent){
         return await this.carouselModel.uploadCarouselContent(carouselContent);
     }
+
+    async getCarouselContents(){
+        let carouselArr  = await this.carouselModel.getCarouselContents();
+        return carouselArr;
+    }
 }
 
 module.exports ={

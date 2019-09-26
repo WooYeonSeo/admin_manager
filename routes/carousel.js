@@ -31,10 +31,18 @@ const upload = multer({
 
 // /carousel/get/
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get('/', async (req, res, next)=>{
+  let result = {
+    status : '200',
+    message : '요청 성공',
+    data : {}
+  }; 
 
+  let carouselArr = await carouselService.getCarouselContents();
+
+  result.data = carouselArr;
+  res.json(result);
+});
 
 router.post('/upload/mini', upload.array('slide_photo', 1), async (req, res, next) => {
   let result = {

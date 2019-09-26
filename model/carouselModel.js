@@ -70,5 +70,10 @@ module.exports = class carouselModel{
         }  
     }
 
-   
+   async getCarouselContents(){
+        let carousellist = await this.db.get(carouselinfo.SELECT_CAROUSEL_LIST).catch((e)=>{
+            console.log("ERRER::" , e);
+        });
+        return carousellist;
+   }
 }
