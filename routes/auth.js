@@ -3,7 +3,7 @@ const router = express.Router();
 const {signinService} = require('../service/signinService.js');
 let  path = require('path');
 let user = new signinService();
-const {AuthController} = require('./controller/AuthController.js');
+const {AuthController} = require('./controller/authController.js');
 let authController = new AuthController(user);
 // url : /signin/
 router.get('/', (req, res,next)=>{
