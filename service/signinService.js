@@ -84,6 +84,18 @@ class signinService{
         let userArr  = await this.userinfoModel.getuserList(offset,limit);
         return userArr;
     }
+
+    /**
+     * 권한 수정 요청
+     *
+     * @param {*} userid 사용자 id
+     * @param {*} type 권한 타입
+     * @returns 성공 여부
+     * @memberof signinService
+     */
+    async updateAuth(userid,type){
+        return this.userinfoModel.setuserAuth(userid,Number(type));
+    }
 }
 
 module.exports ={

@@ -96,4 +96,19 @@ module.exports = class userinfoModel{
         });
         return userlist;
     }
+
+    /**
+     * 사용자 권한 수정
+     *
+     * @param {*} userid id
+     * @param {*} type 권한 타입
+     * @returns 성공여부
+     */
+    async setuserAuth(userid, type){
+        let info = [type,userid];
+        await this.db.get(userinfo.UPDATE_USER_AUTH_TYPE,info);
+        
+        return true;
+    }
+
 }
