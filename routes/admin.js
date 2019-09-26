@@ -6,7 +6,7 @@ const {signinService} = require('../service/signinService.js');
 let authService = new signinService();
 let authController = new AuthController(authService);
 
-router.use(authController.checkAdminAuth)
+router.use(authController.checkAdminAuthRouter)
 /* /admin/main */
 router.get('/main', (req, res)=>{
     res.render('../public/views/admin/main.ejs');
