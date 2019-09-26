@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-const {CarouselController} = require('./controller/carouselController.js');
-const {CarouselService} = require('../service/CarouselService.js');
-let carouselService = new CarouselService();
-let carousel = new CarouselController(carouselService);
+const {AuthController} = require('./controller/authController.js');
+const {signinService} = require('../service/signinService.js');
+let authService = new signinService();
+let authController = new AuthController(authService);
 
+router.use(authController.checkAdminAuth)
 /* /admin/main */
 router.get('/main', (req, res)=>{
     res.render('../public/views/admin/main.ejs');

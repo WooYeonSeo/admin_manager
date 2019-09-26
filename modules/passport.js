@@ -28,7 +28,8 @@ module.exports =  (app) => {
                         console.log("userinfo ", userinfo);
                         let userdata = {
                             "user_id" : userinfo.user_id,
-                            "user_name" : userinfo.user_name
+                            "user_name" : userinfo.user_name,
+                            "is_admin" : userinfo.admin
                         }
     
                         done(null, userdata, {
