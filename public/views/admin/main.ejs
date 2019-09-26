@@ -16,18 +16,37 @@
       <span class="page_subtitle">관리자 페이지 - 사용자 확인 </span>
     </div>
     <div class="container">
-      <div>
-          <div class="left_menu">
-            <p>left menu</p>
-            <p> <a href="/admin/carousel/uploadform">케로셀 등록</a> </p>
-          </div>
-          <div class="right_container">
-            <div class ="user_list">
-              user list box
-            </div>
-          </div>
-      </div>   
+      <div class="left_menu">
+        <p>left menu</p>
+        <p> <a href="/admin/carousel/uploadform">케로셀 등록</a> </p>
+      </div>
+      <div class="right_container">
+        <div class ="user_list">
+            <table  class="table userlist_table">
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ID</th>
+                    <th scope="col">이름</th>
+                    <th scope="col">email</th>
+                    <th scope="col">admin</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">{idx}</th>
+                        <td>{id}</td>
+                        <td>{name}</td>
+                        <td>{email}</td>
+                        <td> <input type="checkbox" name="admin" value="Y" checked> </td>
+                      </tr>
+                </tbody>
+              </table>
+              <div class="readmore_btn" value="0"> 더보기</div>
+        </div>
+      </div>
+         
     </div>
-    <script type="module" src="../../javascripts/view/load-view-admin.js"></script>
+    <script type="module" src="../../javascripts/view/load-view-admin-main.js"></script>
   </body>
 </html>

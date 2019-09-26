@@ -2,3 +2,7 @@
 @import url("reset.css");
 @import url("header.css");
 @import url("style.css");
+
+.left_menu{
+    vertical-align: top;
+}
