@@ -35,5 +35,22 @@ module.exports = function (passport) {
         });
 
     });
+
+    router.get('/users/:page', async (req,res)=>{
+        let result = {
+            status : '',
+            message : '',
+            data : {
+                
+            }
+        };
+       
+        let page = req.params.page;
+        let offset = 10;
+        let users = await user.getUsers(page*offset,offset);
+        result.data['userlist'] = users;
+        
+        res.json(result);
+    }) 
     return router;
 }

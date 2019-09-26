@@ -71,6 +71,19 @@ class signinService{
         }
         next();
     }
+
+    /**
+     * 사용자 정보 묶음으로 가지고오는 함수
+     *
+     * @param {*} offset 가지고 오기 시작할 데이터 갯수 
+     * @param {*} limit 가지고 올 데이터 갯수
+     * @returns 사용자 정보 객체로 반환
+     * @memberof signinService
+     */
+    async getUsers(offset,limit){
+        let userArr  = await this.userinfoModel.getuserList(offset,limit);
+        return Object.assign({},userArr);
+    }
 }
 
 module.exports ={
