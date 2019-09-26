@@ -3,6 +3,8 @@ const router = express.Router();
 const {signinService} = require('../service/signinService.js');
 let  path = require('path');
 let user = new signinService();
+const {AuthController} = require('./controller/AuthController.js');
+let authController = new AuthController(user);
 // url : /signin/
 router.get('/', (req, res,next)=>{
     res.render(path.join(__dirname ,'../views/signin.ejs'));
@@ -44,11 +46,27 @@ module.exports = function (passport) {
                 
             }
         };
-       
         let page = req.params.page;
         let offset = 10;
         let users = await user.getUsers(page*offset,offset);
         result.data['userlist'] = users;
+        
+        res.json(result);
+    }) 
+
+    router.post('/update/type', async (req,res)=>{
+        let result = {
+            status : '',
+            message : '',
+            data : {
+                
+            }
+        };
+        
+        if(await user.updateAuth(req.body.userid, req.body.type)){
+            result.status = 200;
+            result.message = '수정 성공';
+        }
         
         res.json(result);
     }) 
