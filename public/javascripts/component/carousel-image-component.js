@@ -130,6 +130,12 @@ export default class carouselImage extends AbstractView {
 		this.dom.imgItemList.style.transform = `translateX(${offset}px)`;
 	}
 
+	/**
+	 * 마지막 첫번째 케로셀의 애니메이션 없이 이동 함수
+	 *
+	 * @param {*} offset
+	 * @memberof carouselImage
+	 */
 	moveWithoutAnimation(offset) {
 		setTimeout(() => {
 			this.dom.imgItemList.style.transition = 'none';
