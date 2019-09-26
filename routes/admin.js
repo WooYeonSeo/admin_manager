@@ -16,4 +16,8 @@ router.get('/carousel/uploadform', (req, res)=>{
   res.render('../public/views/admin/admin-carousel-upload.ejs');
 });
 
+router.get('/carousel/list',  (req, res)=>{
+  res.render('../public/views/admin/admin-carousel-list.ejs');
+})
+
 module.exports = router;
