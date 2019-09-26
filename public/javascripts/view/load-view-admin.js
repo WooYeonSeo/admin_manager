@@ -1,5 +1,5 @@
 
-import CarouselForm from './admin-upload-form.js';
+import CarouselForm from './admin-upload-view.js';
 class LoadViewAdmin {
         constructor() {
             this.carouselForm = new CarouselForm();
