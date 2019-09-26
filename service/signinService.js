@@ -82,7 +82,7 @@ class signinService{
      */
     async getUsers(offset,limit){
         let userArr  = await this.userinfoModel.getuserList(offset,limit);
-        return Object.assign({},userArr);
+        return userArr;
     }
 }
 
